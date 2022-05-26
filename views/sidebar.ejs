@@ -1,0 +1,170 @@
+<!-- Ionicons -->
+<link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+<!-- Google Font: Source Sans Pro -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+
+<aside class="main-sidebar sidebar-light-danger elevation-4">
+    <!-- Brand Logo -->
+    <a href="index3.html" class="brand-link bg-dark">
+        <img src="/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+        <span class="brand-text font-weight-light">SSIT</span>
+    </a>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <!-- Sidebar user panel (optional) -->
+        <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+            <div class="image">
+                <img src="/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+            </div>
+            <div class="info">
+                <a href="#" class="d-block"><%=adminname%></a>
+            </div>
+        </div>
+
+        <!-- SidebarSearch Form -->
+        <div class="form-inline">
+            <div class="input-group" data-widget="sidebar-search">
+                <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
+                <div class="input-group-append">
+                    <button class="btn btn-sidebar">
+      <i class="fas fa-search fa-fw"></i>
+    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sidebar Menu -->
+        <nav class="mt-2">
+            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                <!-- Add icons to the links using the .nav-icon class
+       with font-awesome or any other icon font library -->
+                <li class="nav-item menu-open">
+                    <a href="/" class="nav-link active">
+                        <!-- <i class="nav-icon fas fa-tachometer-alt"></i> -->
+                        <i class="nav-icon fa fa-home" ></i><p>
+                            Home
+                        </p>
+                    </a>
+
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-edit"></i>
+                        <p>
+                            Forms
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="/addAdmin" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Add Admin</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/addStudent" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Add Student</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/addEvent" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Add Event</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/addCategory" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Add Category</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/addFaculty" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Add Faculty</p>
+                            </a>
+                        </li>
+                       
+                        
+                       
+                        
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-table"></i>
+                        <p>
+                            Tables
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="/displayAdmin" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Admin Table</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/displayStudent" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Student Table</p>
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a href="/displayEvent" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Event Table</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/displayCategory" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Category Table</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/displayFaculty" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Faculty Table</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/displayBookedEvent" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Booked Event Table</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/displayWinner" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Winners</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/displayCoordinator" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Coordinators</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/displaycontact" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Queries</p>
+                            </a>
+                        </li>
+                        
+                        
+                    </ul>
+                </li>
+
+            </ul>
+        </nav>
+        <!-- /.sidebar-menu -->
+    </div>
+    <!-- /.sidebar -->
+</aside>

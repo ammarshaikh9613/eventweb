@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Admin Form</title>
+
+    <!-- Google Font: Source Sans Pro -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="/plugins/fontawesome-free/css/all.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <!-- Tempusdominus Bootstrap 4 -->
+    <link rel="stylesheet" href="/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+    <!-- iCheck -->
+    <link rel="stylesheet" href="/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+    <!-- JQVMap -->
+    <link rel="stylesheet" href="/plugins/jqvmap/jqvmap.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="/dist/css/adminlte.min.css">
+    <!-- overlayScrollbars -->
+    <link rel="stylesheet" href="/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+    <!-- Daterange picker -->
+    <link rel="stylesheet" href="/plugins/daterangepicker/daterangepicker.css">
+    <!-- summernote -->
+    <link rel="stylesheet" href="/plugins/summernote/summernote-bs4.min.css">
+    <style>
+        
+        li a {
+            color:red
+        }
+        a{
+            color:red;
+        }
+            </style>
+</head>
+
+<body class="hold-transition sidebar-mini layout-fixed">
+    <div class="wrapper">
+
+        <!-- Preloader -->
+        <%-include('anim');%>
+
+        <!-- Navbar -->
+        <%- include('header')%>
+            <!-- /.navbar -->
+
+            <!-- Main Sidebar Container -->
+            <%- include('sidebar')%>
+
+                <!-- Content Wrapper. Contains page content -->
+                <div class="content-wrapper">
+                    <!-- Content Header (Page header) -->
+                    <section class="content-header">
+                        <div class="container-fluid">
+                            <div class="row mb-2">
+                                <div class="col-sm-6">
+                                    <h1>Admin Form</h1>
+                                </div>
+                                <div class="col-sm-6">
+                                    <ol class="breadcrumb float-sm-right">
+                                        <li><a href="#"> Home &nbsp; /</a></li>
+                                        
+                                        <li class="active">&nbsp;&nbsp;Edit Admin</li>
+                                    </ol>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /.container-fluid -->
+                    </section>
+
+                    <!-- Main content -->
+                    <section class="content">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <!-- left column -->
+                                <div class="col-md-12">
+                                    <!-- general form elements -->
+                                    <div class="card card-danger">
+                                        <div class="card-header">
+                                            <h3 class="card-title">Admin Form</h3>
+                                        </div>
+                                        <!-- /.card-header -->
+                                        <!-- form start -->
+                                        <form method="post">
+                                            <div class="card-body">
+                                                <div class="form-group">
+                                                    <label for="exampleInputEmail1">Name</label>
+                                                    <input type="text" class="form-control" name="admin_name" value="<%=db_rows_array[0].admin_name%>" placeholder="Enter Admin Name" required>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="exampleInputPassword1">Mobile Number</label>
+                                                    <input type="tel" class="form-control" name="admin_mobile" pattern="^[789]\d{9,9}$" value="<%=db_rows_array[0].admin_mobile%>" placeholder="Enter Mobile Number" required>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="exampleInputPassword1">Email Id</label>
+                                                    <input type="email" pattern="^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$" class="form-control" name="admin_email" value="<%=db_rows_array[0].admin_email%>" placeholder="Enter email id" required>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="exampleInputPassword1">Password</label>
+                                                    <input type="password" class="form-control" name="admin_pass" value="<%=db_rows_array[0].admin_pass%>" placeholder="Enter password" required>
+                                                </div>
+                                            </div>
+                                            <!-- /.card-body -->
+
+                                            <div class="card-footer">
+                                                <button type="submit" class="btn btn-outline-danger" style="margin-right: 20px">Submit</button>
+                                                <button type="button" class="btn btn-outline-dark" onclick="window.location='/displayAdmin'" >Display</button>
+                                                   
+                                              </div>
+                                        </form>
+                                    </div>
+                                    <!-- /.card -->
+
+                                    <!--/.col (right) -->
+                                </div>
+                                <!-- /.row -->
+                            </div>
+                            <!-- /.container-fluid -->
+                    </section>
+                    <!-- /.content -->
+                    </div>
+                    <!-- /.content-wrapper -->
+                    <%- include('footer')%>
+
+                        <!-- Control Sidebar -->
+                        <aside class="control-sidebar control-sidebar-dark">
+                            <!-- Control sidebar content goes here -->
+                        </aside>
+                        <!-- /.control-sidebar -->
+                </div>
+                <!-- ./wrapper -->
+
+                <!-- jQuery -->
+                <script src="/plugins/jquery/jquery.min.js"></script>
+                <!-- jQuery UI 1.11.4 -->
+                <script src="/plugins/jquery-ui/jquery-ui.min.js"></script>
+                <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+                <script>
+                    $.widget.bridge('uibutton', $.ui.button)
+                </script>
+                <!-- Bootstrap 4 -->
+                <script src="/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+                <!-- ChartJS -->
+                <script src="/plugins/chart.js/Chart.min.js"></script>
+                <!-- Sparkline -->
+                <script src="/plugins/sparklines/sparkline.js"></script>
+                <!-- JQVMap -->
+                <script src="/plugins/jqvmap/jquery.vmap.min.js"></script>
+                <script src="plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
+                <!-- jQuery Knob Chart -->
+                <script src="/plugins/jquery-knob/jquery.knob.min.js"></script>
+                <!-- daterangepicker -->
+                <script src="/plugins/moment/moment.min.js"></script>
+                <script src="/plugins/daterangepicker/daterangepicker.js"></script>
+                <!-- Tempusdominus Bootstrap 4 -->
+                <script src="/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
+                <!-- Summernote -->
+                <script src="/plugins/summernote/summernote-bs4.min.js"></script>
+                <!-- overlayScrollbars -->
+                <script src="/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+                <!-- AdminLTE App -->
+                <script src="/dist/js/adminlte.js"></script>
+                <!-- AdminLTE for demo purposes -->
+                <script src="/dist/js/demo.js"></script>
+                <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+                <script src="/dist/js/pages/dashboard.js"></script>
+</body>
+
+</html>

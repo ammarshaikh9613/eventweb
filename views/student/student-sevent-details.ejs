@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+  <meta charset="utf-8">
+  <title>Educenter</title>
+
+  <!-- mobile responsive meta -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <!-- ** Plugins Needed for the Project ** -->
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="/plugins/bootstrap/bootstrap.min.css">
+  <!-- slick slider -->
+  <link rel="stylesheet" href="/plugins/slick/slick.css">
+  <!-- themefy-icon -->
+  <link rel="stylesheet" href="/plugins/themify-icons/themify-icons.css">
+  <!-- animation css -->
+  <link rel="stylesheet" href="/plugins/animate/animate.css">
+  <!-- aos -->
+  <link rel="stylesheet" href="/plugins/aos/aos.css">
+  <!-- venobox popup -->
+  <link rel="stylesheet" href="/plugins/venobox/venobox.css">
+
+  <!-- Main Stylesheet -->
+  <link href="/css/style.css" rel="stylesheet">
+
+  <!--Favicon-->
+  <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon">
+  <link rel="icon" href="/images/favicon.png" type="image/x-icon">
+
+</head>
+
+<body>
+  <!-- preloader start -->
+  <div class="preloader">
+    <img src="/images/preloader.gif" alt="preloader">
+  </div>
+  <!-- preloader end -->
+
+<!-- header -->
+<%-include('header1')%>
+<!-- /header -->
+
+
+
+<!-- page title -->
+<section class="page-title-section overlay" data-background="images/backgrounds/page-title.jpg">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8">
+        <ul class="list-inline custom-breadcrumb">
+          <li class="list-inline-item"><a class="h2 text-primary font-secondary" href="events.html">Successfull Events</a></li>
+          <li class="list-inline-item text-white h3 font-secondary nasted">Event Details</li>
+        </ul>
+        <p class="text-lighten">Our courses offer a good compromise between the continuous assessment favoured by some universities and the emphasis placed on final exams by others.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- /page title -->
+
+<!-- event single -->
+<section class="section-sm">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <h2 class="section-title"><%=db_rows_array[0].event_name%> (<%=db_rows_array[0].category_name%>)</h2>
+      </div>
+      <!-- event image -->
+      <div class="col-12 mb-4">
+        <img src="<%=db_rows_array[0].event_photo%>" alt="event thumb" class="img-fluid w-100">
+      </div>
+    </div>
+    <!-- event info -->
+    <div class="row align-items-center mb-5">
+      <div class="col-lg-11">
+        <ul class="list-inline">
+          <li class="list-inline-item mr-xl-5 mr-4 mb-3 mb-lg-0">
+            <div class="d-flex align-items-center">
+              <i class="ti-location-pin text-primary icon-md mr-2"></i>
+              <div class="text-left">
+                <h6 class="mb-0">LOCATION</h6>
+                <p class="mb-0"><%=db_rows_array[0].event_venue%></p>
+              </div>
+            </div>
+          </li>
+          <li class="list-inline-item mr-xl-5 mr-4 mb-3 mb-lg-0">
+            <div class="d-flex align-items-center">
+              <i class="ti-calendar text-primary icon-md mr-2"></i>
+              <div class="text-left">
+                <h6 class="mb-0">DATE</h6>
+                <p class="mb-0"><%=db_rows_array[0].event_from_date%>-<%=db_rows_array[0].event_to_date%></p>
+              </div>
+            </div>
+          </li>
+          <li class="list-inline-item mr-xl-5 mr-4 mb-3 mb-lg-0">
+            <div class="d-flex align-items-center">
+              <i class="ti-time text-primary icon-md mr-2"></i>
+              <div class="text-left">
+                <h6 class="mb-0">TIME</h6>
+                <p class="mb-0"><%=db_rows_array[0].event_from_time%>-<%=db_rows_array[0].event_to_time%></p>
+              </div>
+            </div>
+          </li>
+         
+        </ul>
+      </div>
+      
+      <!-- border -->
+      <div class="col-12 mt-4 order-4">
+        <div class="border-bottom border-primary"></div>
+      </div>
+    </div>
+    <!-- event details -->
+    <div class="row">
+      <div class="col-12 mb-50">
+        <h3>About Event</h3>
+        <p><%=db_rows_array[0].event_details%></p>
+        
+            <i class="ti-user text-primary icon-md mr-2 "></i> <%=db_rows_array[0].faculty_name%>(Faculty Coordninator) <i class="ti-mobile text-primary icon-md mr-2 "></i> <%=db_rows_array[0].faculty_mobile%>
+        
+            <br>
+            <i class="ti-user text-primary icon-md mr-2 "></i> <%=db_rows_array[0].student_name%>(Student Coordninator) <i class="ti-mobile text-primary icon-md mr-2 "></i> <%=db_rows_array[0].coordinator_mobile%>
+          
+      </div>
+    </div>
+    
+  </div>
+</section>
+<!-- /event single -->
+
+
+<!-- footer -->
+<%-include('footer');%>
+<!-- /footer -->
+
+<!-- jQuery -->
+<script src="/plugins/jQuery/jquery.min.js"></script>
+<!-- Bootstrap JS -->
+<script src="/plugins/bootstrap/bootstrap.min.js"></script>
+<!-- slick slider -->
+<script src="/plugins/slick/slick.min.js"></script>
+<!-- aos -->
+<script src="/plugins/aos/aos.js"></script>
+<!-- venobox popup -->
+<script src="/plugins/venobox/venobox.min.js"></script>
+<!-- filter -->
+<script src="/plugins/filterizr/jquery.filterizr.min.js"></script>
+<!-- google map -->
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBu5nZKbeK-WHQ70oqOWo-_4VmwOwKP9YQ"></script>
+<script src="plugins/google-map/gmap.js"></script>
+
+<!-- Main Script -->
+<script src="/js/script.js"></script>
+
+</body>
+</html>

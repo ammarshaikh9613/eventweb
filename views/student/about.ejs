@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+  <meta charset="utf-8">
+  <title>Educenter</title>
+
+  <!-- mobile responsive meta -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <!-- ** Plugins Needed for the Project ** -->
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="plugins/bootstrap/bootstrap.min.css">
+  <!-- slick slider -->
+  <link rel="stylesheet" href="plugins/slick/slick.css">
+  <!-- themefy-icon -->
+  <link rel="stylesheet" href="plugins/themify-icons/themify-icons.css">
+  <!-- animation css -->
+  <link rel="stylesheet" href="plugins/animate/animate.css">
+  <!-- aos -->
+  <link rel="stylesheet" href="plugins/aos/aos.css">
+  <!-- venobox popup -->
+  <link rel="stylesheet" href="plugins/venobox/venobox.css">
+
+  <!-- Main Stylesheet -->
+  <link href="css/style.css" rel="stylesheet">
+
+  <!--Favicon-->
+  <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
+  <link rel="icon" href="images/favicon.png" type="image/x-icon">
+
+</head>
+
+<body>
+  <!-- preloader start -->
+  <div class="preloader">
+    <img src="images/preloader.gif" alt="preloader">
+  </div>
+  <!-- preloader end -->
+
+<!-- header -->
+<%-include('header1')%>
+<!-- /header -->
+<!-- Modal -->
+
+
+<!-- page title -->
+<section class="page-title-section overlay" data-background="">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8">
+        <ul class="list-inline custom-breadcrumb">
+          <li class="list-inline-item"><a class="h2 text-primary font-secondary" href="@@page-link">About Us</a></li>
+          <li class="list-inline-item text-white h3 font-secondary @@nasted"></li>
+        </ul>
+        <p class="text-lighten">Our Events offer a good compromise between the continuous assessment favoured by some universities and by others.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- /page title -->
+<br>
+<section class="section-sm bg-primary">
+    <div class="container">
+      <div class="row">
+        <!-- funfacts item -->
+        <div class="col-md-3 col-sm-6 mb-4 mb-md-0">
+          <div class="text-center">
+            <h2 class="count text-white" data-count="<%=facultyData.length%>">0</h2>
+            <h5 class="text-white">Faculty Coordinators</h5>
+          </div>
+        </div>
+        <!-- funfacts item -->
+        <div class="col-md-3 col-sm-6 mb-4 mb-md-0">
+          <div class="text-center">
+            <h2 class="count text-white" data-count="<%=eventData.length%>">0</h2>
+            <h5 class="text-white">Events</h5>
+          </div>
+        </div>
+        <!-- funfacts item -->
+        <div class="col-md-3 col-sm-6 mb-4 mb-md-0">
+          <div class="text-center">
+            <h2 class="count text-white" data-count="<%=studentData.length%>">0</h2>
+            <h5 class="text-white">STUDENTS</h5>
+          </div>
+        </div>
+        <!-- funfacts item -->
+        <div class="col-md-3 col-sm-6 mb-4 mb-md-0">
+          <div class="text-center">
+            <h2 class="count text-white" data-count="<%=registerData.length%>">0</h2>
+            <h5 class="text-white">Booked</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+<!-- about -->
+<section class="section">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <img class="img-fluid w-100 mb-4" src="images/banner/banner.jpg" alt="about image">
+        <h2 class="section-title">ABOUT US</h2>
+        <p>The company offers College event planning services from a team of experienced and energetic event. One of the main reasons behind the success of Event Planner is the fact that the team does not charge fees to its clients! With the number of events we organise, Event Planner Ltd does not need to add exorbitant fees and mark-ups to make its profit margins. This ensures that our clients list, which is constantly growing, make regular use of our services.
+
+
+            There is no fee. There is no mark-up!
+            
+            The Event Planner team does not charge any fees to its clients*. Yes, this might sound strange. However, the company earns its profits through its suppliers, with whom a very strong relationship has been built. This does not mean that the costs are up-marked to make up for the fee. On the contrary, they are less than it would cost a company when booking directly. We know it sounds too good to believe, but over the years this formula has helped the Event Planner team become the success story they are today.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- /about -->
+
+<!-- funfacts -->
+
+<!-- /funfacts -->
+
+<!-- success story -->
+
+<!-- /success story -->
+
+<!-- teachers -->
+
+  <!-- /teachers -->
+
+<!-- footer -->
+<%-include('footer')%>
+<!-- /footer -->
+
+<!-- jQuery -->
+<script src="plugins/jQuery/jquery.min.js"></script>
+<!-- Bootstrap JS -->
+<script src="plugins/bootstrap/bootstrap.min.js"></script>
+<!-- slick slider -->
+<script src="plugins/slick/slick.min.js"></script>
+<!-- aos -->
+<script src="plugins/aos/aos.js"></script>
+<!-- venobox popup -->
+<script src="plugins/venobox/venobox.min.js"></script>
+<!-- filter -->
+<script src="plugins/filterizr/jquery.filterizr.min.js"></script>
+<!-- google map -->
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBu5nZKbeK-WHQ70oqOWo-_4VmwOwKP9YQ"></script>
+<script src="plugins/google-map/gmap.js"></script>
+
+<!-- Main Script -->
+<script src="js/script.js"></script>
+
+</body>
+</html>

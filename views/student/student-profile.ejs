@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+  <meta charset="utf-8">
+  <title>Educenter</title>
+
+  <!-- mobile responsive meta -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <!-- ** Plugins Needed for the Project ** -->
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="plugins/bootstrap/bootstrap.min.css">
+  <!-- slick slider -->
+  <link rel="stylesheet" href="plugins/slick/slick.css">
+  <!-- themefy-icon -->
+  <link rel="stylesheet" href="plugins/themify-icons/themify-icons.css">
+  <!-- animation css -->
+  <link rel="stylesheet" href="plugins/animate/animate.css">
+  <!-- aos -->
+  <link rel="stylesheet" href="plugins/aos/aos.css">
+  <!-- venobox popup -->
+  <link rel="stylesheet" href="plugins/venobox/venobox.css">
+
+  <!-- Main Stylesheet -->
+  <link href="css/style.css" rel="stylesheet">
+
+  <!--Favicon-->
+  <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
+  <link rel="icon" href="images/favicon.png" type="image/x-icon">
+</head>
+
+<body>
+  <!-- preloader start -->
+  <div class="preloader">
+    <img src="images/preloader.gif" alt="preloader">
+  </div>
+  <!-- preloader end -->
+
+<!-- header -->
+<%-include('header1')%>
+<!-- /header -->
+
+
+<!-- page title -->
+<section class="page-title-section overlay" data-background="">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8">
+        <ul class="list-inline custom-breadcrumb">
+          <li class="list-inline-item"><a class="h2 text-primary font-secondary" href="teacher.html">About me</a></li>
+        
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- /page title -->
+
+<!-- teacher details -->
+<div class="col-sm-12">                                
+  <% const m=getMessages() %>    
+      <% if (m.notify) { %>
+      <% m.notify.forEach((element) => { %>
+       <div class="alert alert-success " role="alert">
+          <%= element %>
+      </div>
+      <% }) %>                           
+  <% } %>
+<section class="section">
+  
+  <div class="container">
+    
+    <div class="row">
+      
+      <div class="col-md-5 mb-5">
+        <img class="img-fluid w-100" src="<%=db_rows_array[0].student_photo%>" alt="teacher">
+      </div>
+      <div class="col-md-6 mb-5">
+        <h3><%=db_rows_array[0].student_name%></h3>
+        
+      
+        <div class="row">
+          <div class="col-md-6 mb-5 mb-md-0">
+           
+            <ul class="list-unstyled">
+              <li class="mb-3"><a class="text-color" href="#>"><i class="ti-user mr-2"></i><%=db_rows_array[0].student_enrollment%></a></li>
+              <li class="mb-3"><a class="text-color" href="#"><i class="ti-email mr-2"></i><%=db_rows_array[0].student_email%></a></li>
+              <li class="mb-3"><a class="text-color" href="#"><i class="ti-mobile mr-2"></i><%=db_rows_array[0].student_mobile%></a></li>
+              <li class="mb-3"><a class="text-color" href="#"><i class="ti-lock mr-2"></i><%=db_rows_array[0].student_pass%></a></li>
+              <li class="mb-3"><a class="text-color" href="#"><i class="ti-user mr-2"></i><%=db_rows_array[0].student_gender%></a></li>
+  
+              <li class="mb-3"><a class="text-color" href="#"><i class="ti-calendar mr-2"></i><%=db_rows_array[0].student_dob%></a></li>
+              <li class="mb-3"><a class="text-color" href="#"><i class="ti-location-pin mr-2"></i><%=db_rows_array[0].student_address%></a></li>
+            
+            </ul>
+          </div>
+          <div class="col-md-6">
+            
+          </div>
+          <a href="/studentprofileedit" class="btn btn-primary btn-sm"><i class="ti-pencil-alt mr-2"></i>Edit Profile</a>
+      
+        </div>
+      </div>
+      
+    </div>
+    
+  </div>
+</section>
+<!-- /teacher details -->
+
+<!-- footer -->
+<%-include('footer')%>
+<!-- /footer -->
+
+<!-- jQuery -->
+<script src="plugins/jQuery/jquery.min.js"></script>
+<!-- Bootstrap JS -->
+<script src="plugins/bootstrap/bootstrap.min.js"></script>
+<!-- slick slider -->
+<script src="plugins/slick/slick.min.js"></script>
+<!-- aos -->
+<script src="plugins/aos/aos.js"></script>
+<!-- venobox popup -->
+<script src="plugins/venobox/venobox.min.js"></script>
+<!-- filter -->
+<script src="plugins/filterizr/jquery.filterizr.min.js"></script>
+<!-- google map -->
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBu5nZKbeK-WHQ70oqOWo-_4VmwOwKP9YQ"></script>
+<script src="plugins/google-map/gmap.js"></script>
+
+<!-- Main Script -->
+<script src="js/script.js"></script>
+
+</body>
+</html>

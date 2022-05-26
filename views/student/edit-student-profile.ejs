@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+  <meta charset="utf-8">
+  <title>Educenter</title>
+
+  <!-- mobile responsive meta -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <!-- ** Plugins Needed for the Project ** -->
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="plugins/bootstrap/bootstrap.min.css">
+  <!-- slick slider -->
+  <link rel="stylesheet" href="plugins/slick/slick.css">
+  <!-- themefy-icon -->
+  <link rel="stylesheet" href="plugins/themify-icons/themify-icons.css">
+  <!-- animation css -->
+  <link rel="stylesheet" href="plugins/animate/animate.css">
+  <!-- aos -->
+  <link rel="stylesheet" href="plugins/aos/aos.css">
+  <!-- venobox popup -->
+  <link rel="stylesheet" href="plugins/venobox/venobox.css">
+
+  <!-- Main Stylesheet -->
+  <link href="css/style.css" rel="stylesheet">
+
+  <!--Favicon-->
+  <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
+  <link rel="icon" href="images/favicon.png" type="image/x-icon">
+</head>
+
+<body>
+  <!-- preloader start -->
+  <div class="preloader">
+    <img src="images/preloader.gif" alt="preloader">
+  </div>
+  <!-- preloader end -->
+
+<!-- header -->
+<%-include('header1')%>
+<!-- /header -->
+
+
+<!-- page title -->
+<section class="page-title-section overlay" data-background="images/backgrounds/page-title.jpg">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8">
+        <ul class="list-inline custom-breadcrumb">
+          <li class="list-inline-item"><a class="h2 text-primary font-secondary" href="teacher.html">Edit Profile</a></li>
+       
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- /page title -->
+
+<!-- teacher details -->
+<section class="section">
+  <div class="container">
+   <form method="post">
+    <div class="row">
+      <div class="col-md-6 mb-5">
+        <img class="img-fluid w-100" src="<%=db_rows_array[0].student_photo%>" alt="teacher">
+      </div>
+    
+      <div class="col-md-6 mb-5">
+        <h3><input type="text" name="student_name" class="form-control" value="<%=db_rows_array[0].student_name%>"></h3>
+        
+      
+        <div class="row">
+          <div class="col-md-12 mb-5">
+       
+            <ul class="list-unstyled">
+              <li class="mb-3"><input type="text" name="student_enrollment" class="form-control" value="<%=db_rows_array[0].student_enrollment%>">   </li>
+              <li class="mb-3"><input type="email" name="student_email" class="form-control" value="<%=db_rows_array[0].student_email%>">   </li>
+              <li class="mb-3"><input type="tel" name="student_mobile" class="form-control" value="<%=db_rows_array[0].student_mobile%>">   </li>
+              <li class="mb-3"> <input type="radio" name="student_gender" value="male" 
+              <% if(db_rows_array[0].student_gender=='male') { %>
+                  <%= "checked"%>
+                  <%}%>
+              >Male
+              <input type="radio" name="student_gender" value="female" 
+              <% if(db_rows_array[0].student_gender=='female') { %>
+                  <%= "checked"%>
+                  <%}%>
+              >Female</li>
+              <li class="mb-3"><input type="text" name="student_pass" class="form-control" value="<%=db_rows_array[0].student_pass%>" disabled>   </li>
+              <li class="mb-3"><input type="date" name="student_dob" class="form-control" value="<%=db_rows_array[0].student_dob%>">   </li>
+              <li class="mb-3"><input type="text" name="student_address" class="form-control" value="<%=db_rows_array[0].student_address%>">   </li>
+              
+            </ul>
+            <button type="submit" class="btn btn-success btn-block" onclick="window.location='/studentprofileedit'">Update Profile</button>
+                          
+          </div>
+          
+          
+        </div>
+      </div>
+
+    </div>
+</form>
+  </div>
+</section>
+<!-- /teacher details -->
+
+<!-- footer -->
+<%-include('footer')%>
+<!-- /footer -->
+
+<!-- jQuery -->
+<script src="plugins/jQuery/jquery.min.js"></script>
+<!-- Bootstrap JS -->
+<script src="plugins/bootstrap/bootstrap.min.js"></script>
+<!-- slick slider -->
+<script src="plugins/slick/slick.min.js"></script>
+<!-- aos -->
+<script src="plugins/aos/aos.js"></script>
+<!-- venobox popup -->
+<script src="plugins/venobox/venobox.min.js"></script>
+<!-- filter -->
+<script src="plugins/filterizr/jquery.filterizr.min.js"></script>
+<!-- google map -->
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBu5nZKbeK-WHQ70oqOWo-_4VmwOwKP9YQ"></script>
+<script src="plugins/google-map/gmap.js"></script>
+
+<!-- Main Script -->
+<script src="js/script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Report</title>
+</head>
+<body>
+    <center><h1>Event Mangemnet </h1></center>
+    <hr>
+    <center><h3>Category Wise Event Report</h3></center>
+    
+    <form method="post">
+      
+        <select name="category">
+        <% if(db_rows_array.length>0){%>
+            <% for(var i=0;i<db_rows_array.length;i++){%>
+                 <option value="<%=db_rows_array[i].category_id%>"><%=db_rows_array[i].category_name%></option>                                                                   
+                <% } %>
+        <% } %> 
+
+    </select>    
+    <input type="submit" value="search" onclick="showTable()">   
+        <a href="#" onclick="window.print();" >Print</a>
+    </form>
+
+
+    <table border="1" id="table1">
+        <tr>
+            <th>#</th>
+            <th>Category Name</th>
+            <th>Event Name</th>
+            <th>Event Date</th>
+            <th>Event Time</th>
+            <th>Event Venue</th>
+        </tr>
+        <% if(db_rows_array.length>0){%>
+            <% for(var i=0;i<db_rows_array.length;i++){%>
+        <tr>
+            <td><%=i+1%></td>
+            <td><%= db_rows_array[i].category_name %></td>
+            <td><%= db_rows_array[i].event_name %></td>
+            <td><%= db_rows_array[i].event_from_date%> - <%= db_rows_array[i].event_to_date%></td>
+            <td><%= db_rows_array[i].event_from_time%> - <%= db_rows_array[i].event_to_time%></td>
+            <td><%= db_rows_array[i].event_venue %></td>
+         
+        </tr>
+        <% } %>  
+        <% } %>      
+    </table>
+
+</body>
+
+
+</html>

@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Profiles</title>
+
+    <!-- Google Font: Source Sans Pro -->
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="/plugins/fontawesome-free/css/all.min.css">
+    <!-- overlayScrollbars -->
+    <link rel="stylesheet" href="/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="/dist/css/adminlte.min.css">
+    <style>
+        
+        li a {
+            color:#20c997;
+        }
+        a{
+            color:#20c997;
+        }
+        .btn-success{
+        background-color: #20c997;
+        color:black;
+    }
+    .btn-success:hover{
+        background-color: #20c997;
+     
+    }
+
+.btn-success:active{
+background-color:#20c997;
+}
+
+.btn-success:focus{
+background-color:#20c997;
+}
+       
+</style>
+</head>
+
+<body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
+    <div class="wrapper">
+        <!-- Preloader -->
+        <div class="preloader flex-column justify-content-center align-items-center">
+            <img class="animation__wobble" src="/dist/img/AdminLTELogo.png" alt="AdminLTELogo" height="60" width="60">
+        </div>
+        <!-- Navbar -->
+        <%-include('faculty-header')%>
+            <!-- /.navbar -->
+            <!-- Main Sidebar Container -->
+            <%-include('faculty-sidebar')%>
+                <!-- Content Wrapper. Contains page content -->
+                <div class="content-wrapper">
+                    <!-- Content Header (Page header) -->
+                    <div class="content-header">
+                        <div class="container-fluid">
+                            <div class="row mb-2">
+                                <div class="col-sm-12">
+                                    <center>
+                                        <h1 class="m-0">Faculty Profile Edit</h1>
+                                    </center>
+                                </div><!-- /.col -->
+                            </div><!-- /.row -->
+                        </div><!-- /.container-fluid -->
+                    </div>
+                    <!-- /.content-header -->
+                    <!-- Main content -->
+                    <section class="content">
+                        <div class="container-fluid">
+                            <!-- Info boxes -->
+                            <div class="row">
+
+                                <!-- /.col -->
+                                <div class="col-12 col-sm-6 col-md-12">
+                                    <div class="card card-teal">
+                                        <div class="card-header">
+                                            <h3 class="card-title">About Me</h3>
+                                        </div> 
+                                        <div class="card-body box-profile">
+
+                                            <div class="text-center">
+                                                <img class="profile-user-img img-fluid img-circle"
+                                                    src="<%=db_rows_array[0].faculty_photo%>"
+                                                    alt="faculty profile picture">
+                                            </div>
+                                            <form method="post">
+                                               
+                                                <center><input type="text" name="faculty_name"
+                                                        class="form-control col-md-3"
+                                                        value="<%=db_rows_array[0].faculty_name%>"></center>
+
+                                                <p class="text-muted text-center">Professior</p>
+
+                                                <ul class="list-group list-group-unbordered mb-3">
+                                                    <li class="list-group-item ">
+                                                        <strong><i class="fas fa-at mr-1"></i> Email</strong>
+                                                       
+                                                        <input type="email" name="faculty_email" class="form-control"
+                                                            value="<%=db_rows_array[0].faculty_email%>">
+                                                    </li>
+                                                    <!-- <li class="list-group-item">
+                                                    <b>Email</b> <a class="float-right"><%=db_rows_array[0].faculty_email%></a>
+                                                </li> -->
+                                                    
+                                                    <li class="list-group-item">
+                                                        <strong><i class="fas fa-anchor mr-1"></i> Gender</strong>
+                                                        <p class="text-muted">
+                                                           
+                                                        </p>
+                                                        <input type="radio" name="faculty_gender" value="male" 
+                                                        <% if(db_rows_array[0].faculty_gender=='male') { %>
+                                                            <%= "checked"%>
+                                                            <%}%>
+                                                        >Male
+                                                        <input type="radio" name="faculty_gender" value="female" 
+                                                        <% if(db_rows_array[0].faculty_gender=='female') { %>
+                                                            <%= "checked"%>
+                                                            <%}%>
+                                                        >Female
+                                                    </li>
+                                                    <li class="list-group-item">
+                                                        <strong><i class="fas fa-calendar mr-1"></i> Date Of
+                                                            Birth</strong>
+                                                        <p class="text-muted">
+                                                          
+                                                        </p>
+                                                        <input type="date" name="faculty_dob" class="form-control"
+                                                            value="<%=db_rows_array[0].faculty_dob%>">
+                                                    </li>
+                                                    <li class="list-group-item">
+                                                        <strong><i class="fas fa-mobile mr-1"></i> Mobile
+                                                            Number</strong>
+                                                        <p class="text-muted">
+                                                          
+                                                        </p>
+                                                        <input type="tel" name="faculty_mobile" class="form-control"
+                                                            value="<%=db_rows_array[0].faculty_mobile%>">
+                                                    </li>
+                                                    <li class="list-group-item">
+                                                        <strong><i class="fas fa-map-marker-alt mr-1"></i>
+                                                            Location</strong>
+                                                        <p class="text-muted">
+                                                           
+                                                        </p>
+                                                        <textarea name="faculty_address" name="faculty_address"
+                                                            class="form-control"><%=db_rows_array[0].faculty_address%></textarea>
+                                                        <!-- <a href="" class="float-right"><i class="fa fa-edit"></i>Edit</a> -->
+                                                    </li>
+                                                </ul>
+                                                    
+                                                    <button type="submit" class="btn btn-success btn-block" onclick="window.location='/facultyprofileedit'">Update Profile</button>
+                                            </form>
+                                            <!-- <a href="#" class="btn btn-primary btn-block"><b>Follow</b></a> -->
+                                        </div>
+                                        <!-- /.card-body -->
+                                    </div>
+
+                                    <!-- Main row -->
+
+                                    <!-- /.col -->
+                                </div>
+                                <!-- /.row -->
+                            </div>
+                            <!--/. container-fluid -->
+                    </section>
+                    <!-- /.content -->
+                </div>
+                <!-- /.content-wrapper -->
+                <!-- Control Sidebar -->
+                <aside class="control-sidebar control-sidebar-dark">
+                    <!-- Control sidebar content goes here -->
+                </aside>
+                <!-- /.control-sidebar -->
+                <!-- Main Footer -->
+                <%-include('faculty-footer')%>
+    </div>
+    <!-- ./wrapper -->
+
+    <!-- REQUIRED SCRIPTS -->
+    <!-- jQuery -->
+    <script src="/plugins/jquery/jquery.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- overlayScrollbars -->
+    <script src="/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="/dist/js/adminlte.js"></script>
+
+    <!-- PAGE PLUGINS -->
+    <!-- jQuery Mapael -->
+    <script src="/plugins/jquery-mousewheel/jquery.mousewheel.js"></script>
+    <script src="/plugins/raphael/raphael.min.js"></script>
+    <script src="/plugins/jquery-mapael/jquery.mapael.min.js"></script>
+    <script src="/plugins/jquery-mapael/maps/usa_states.min.js"></script>
+    <!-- ChartJS -->
+    <script src="/plugins/chart.js/Chart.min.js"></script>
+
+    <!-- AdminLTE for demo purposes -->
+    <script src="/dist/js/demo.js"></script>
+    <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+    <script src="/dist/js/pages/dashboard2.js"></script>
+</body>
+
+</html>

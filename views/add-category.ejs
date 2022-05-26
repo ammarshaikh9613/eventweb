@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Add Category</title>
+
+  <!-- Google Font: Source Sans Pro -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
+  <style>
+        
+    li a {
+        color:red
+    }
+    a{
+            color:red;
+        }
+        </style>
+</head>
+<body class="hold-transition sidebar-mini layout-fixed">
+<div class="wrapper">
+  <!-- Preloader -->
+  <%-include('anim');%>
+    <!-- Navbar -->
+  
+  <!-- /.navbar -->
+    <%- include('header');%>
+
+  <!-- Main Sidebar Container -->
+    <%-include('sidebar');%>
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-9">                                
+            <% const m=getMessages() %>    
+                <% if (m.notify) { %>
+                <% m.notify.forEach((element) => { %>
+                 <div class="alert alert-success text-center " role="alert">
+               <%= element %>
+                </div>
+                <% }) %>                           
+            <% } %>
+        </div>
+        <div class="col-sm-3">
+          <ol class="breadcrumb float-sm-right">
+            <li><a href="#"> Home &nbsp; /</a></li>
+            <li class="active">&nbsp;&nbsp;Add Category</li>
+            </ol>
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <!-- left column -->
+          <div class="col-md-12">
+            <!-- general form elements -->
+            <div class="card card-danger">
+              <div class="card-header">
+                <h3 class="card-title">Add Category</h3>
+              </div>
+              <!-- /.card-header -->
+              <!-- form start -->
+              <form method="post">
+                <div class="card-body">
+                  <div class="form-group">
+                    <label for="exampleInputName1">Category Name</label>
+                    <input type="text" class="form-control" name="category_name" id="exampleInputName1" placeholder="Enter Category Name" required>
+                  </div>
+                 
+            
+                
+                  
+                </div>
+                <!-- /.card-body -->
+
+                <div class="card-footer">
+                    <button type="submit" class="btn btn-outline-danger" style="margin-right: 20px" style="margin-right: 20px">Submit</button>
+                    <button onclick='window.location="displayCategory"' type="button" class="btn btn-outline-dark">Display</button>
+                </div>
+              </form>
+            </div>
+            <!-- /.card -->
+
+            
+
+           
+
+          </div>
+          
+        
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+  <%-include('footer');%>
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+  </aside>
+  <!-- /.control-sidebar -->
+</div>
+<!-- ./wrapper -->
+
+<!-- jQuery -->
+<script src="../../plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- bs-custom-file-input -->
+<script src="../../plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
+<!-- AdminLTE App -->
+<script src="../../dist/js/adminlte.min.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="../../dist/js/demo.js"></script>
+<!-- Page specific script -->
+<script>
+$(function () {
+  bsCustomFileInput.init();
+   //Date and time picker
+    $('#reservationdatetime').datetimepicker({ icons: { time: 'far fa-clock' } });
+    //Date range picker
+    $('#reservation').daterangepicker()
+    //Date range picker with time picker
+    $('#reservationtime').daterangepicker({
+      timePicker: true,
+      timePickerIncrement: 30,
+      locale: {
+        format: 'MM/DD/YYYY'
+      }
+    })
+});
+</script>
+</body>
+</html>

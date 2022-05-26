@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Event Form</title>
+
+  <!-- Google Font: Source Sans Pro -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="/plugins/fontawesome-free/css/all.min.css">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="/https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <!-- Tempusdominus Bootstrap 4 -->
+  <link rel="stylesheet" href="/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+  <!-- iCheck -->
+  <link rel="stylesheet" href="/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+  <!-- JQVMap -->
+  <link rel="stylesheet" href="/plugins/jqvmap/jqvmap.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="/dist/css/adminlte.min.css">
+  <!-- overlayScrollbars -->
+  <link rel="stylesheet" href="plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+  <!-- Daterange picker -->
+  <link rel="stylesheet" href="/plugins/daterangepicker/daterangepicker.css">
+  <!-- summernote -->
+  <link rel="stylesheet" href="/plugins/summernote/summernote-bs4.min.css">
+  <style>
+        
+    li a {
+        color:red
+    }
+    a{
+            color:red;
+        }
+        </style>
+</head>
+
+<body  class="hold-transition sidebar-mini layout-fixed">
+<div class="wrapper">
+  
+    <!-- Preloader -->
+  <%-include('anim');%>
+    
+    <!-- Navbar -->
+  
+  <!-- /.navbar -->
+    <%- include('header');%>
+  <!-- Main Sidebar Container -->
+    <%-include('sidebar');%>
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>Event Form</h1>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li><a href="#"> Home &nbsp; /</a></li>
+              
+              <li class="active">&nbsp;&nbsp;Edit Event</li>
+          </ol>
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <!-- left column -->
+          <div class="col-md-12">
+            <!-- general form elements -->
+            <div class="card card-danger">
+              <div class="card-header">
+                <h3 class="card-title">Edit  Events</h3>
+              </div>
+              <!-- /.card-header -->
+              <!-- form start -->
+              <form method="post" enctype="multipart/form-data">
+                <div class="card-body">
+                      <div class="form-group">
+                        <label>Event Name</label>
+                        <input type="text" class="form-control" name="event_name" value="<%= db_rows_array[0].event_name%>" placeholder="Enter Event Name" required>
+                      </div>
+                      <div class="form-group">
+                        <label>Event Details</label>
+                        <input type="text" class="form-control" name="event_details" value="<%= db_rows_array[0].event_details%>" placeholder="Enter Event Details" required>
+                      </div>
+                      
+                      
+                      
+                      <div class="form-group">
+                        <label for="exampleInputName1">Event From  Date</label>
+                        <input type="date" class="form-control" name="event_from_date" value="<%= db_rows_array[0].event_from_date%>"    id="exampleInputTime1"required >
+                      </div>
+
+                      <div class="form-group">
+                        <label for="exampleInputName1">Event To Date</label>
+                        <input type="date" class="form-control" name="event_to_date" value="<%= db_rows_array[0].event_to_date%>" id="exampleInputTime1"required >
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputName1">Event From Time</label>
+                        <input type="time" class="form-control" name="event_from_time" value="<%= db_rows_array[0].event_from_time%>"  id="exampleInputTime1" required >
+                    </div>
+                    
+                   
+                    
+                    <div class="form-group">
+                        <label for="exampleInputName1">Event To Time</label>
+                        <input type="time" class="form-control" name="event_to_time" value="<%= db_rows_array[0].event_to_time%>" id="exampleInputTime1" required >
+                    </div>
+
+  
+                    <div class="form-group">
+                      <label for="exampleInputName1">Event Venue</label>
+                      <input type="text" class="form-control" name="event_venue" value="<%= db_rows_array[0].event_venue%>" id="exampleInputName1" placeholder="Enter SubEvent Venue Name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputName1">Faculty Name</label>
+                        <select name="faculty_id" class="form-control">
+                            <%for(var i=0;i<facultyData.length;i++){%>
+                                <option value="<%= facultyData[i].faculty_id %>"><%= facultyData[i].faculty_name %></option>
+                                <%} %>
+                        </select>
+                      </div>
+                    
+
+                    <div class="form-group">
+                        <label for="exampleInputName1">Category Name</label>
+                        <select name="category_id" class="form-control">
+                            <%for(var i=0;i<categoryData.length;i++){%>
+                                <option value="<%= categoryData[i].category_id %>"><%= categoryData[i].category_name %></option>
+                                <%} %>
+                        </select>
+                      </div>
+                
+                   <div class="form-group"> 
+                                                    <label for="exampleInputFile">Event Photo</label>
+                                                     <input type="file" id="exampleInputFile" name="event_photo" required> <label for="file"><%= db_rows_array[0].event_photo%></label>
+                                                     
+                                                     <!-- <img src="<%= db_rows_array[0].product_image%>" width="100" height="100"> -->
+                                                     <input type="hidden" name="old_image" value="<%= db_rows_array[0].event_photo%>">
+                                                     
+                                                      
+                                                </div>
+
+
+
+            
+            </div>
+            <!-- /.card-body -->              
+            <div class="card-footer">
+                <button type="submit" class="btn btn-outline-danger" style="margin-right: 20px">Submit</button>
+                <button onclick='window.location="/displayEvent"' type="button" class="btn btn-outline-dark">Display</button>
+            </div>
+            </form>
+            </div>
+            <!-- /.card -->
+
+
+          </div>
+          
+        
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+  <%-include('footer');%>
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+  </aside>
+  <!-- /.control-sidebar -->
+</div>
+<!-- ./wrapper -->
+
+<!-- jQuery -->
+<script src="../../plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- bs-custom-file-input -->
+<script src="../../plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
+<!-- AdminLTE App -->
+<script src="../../dist/js/adminlte.min.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="../../dist/js/demo.js"></script>
+<!-- Page specific script -->
+<script>
+$(function () {
+  bsCustomFileInput.init();
+   //Date and time picker
+   $('#reservationdatetime').datetimepicker({ icons: { time: 'far fa-clock' } });
+    //Date range picker
+    $('#reservation').daterangepicker()
+    //Date range picker with time picker
+    $('#reservationtime').daterangepicker({
+      timePicker: true,
+      timePickerIncrement: 30,
+      locale: {
+        format: 'MM/DD/YYYY'
+      }
+    })
+});
+</script>
+</body>
+</html>
+

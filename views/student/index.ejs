@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+  <meta charset="utf-8">
+  <title>College</title>
+
+  <!-- mobile responsive meta -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <!-- ** Plugins Needed for the Project ** -->
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="plugins/bootstrap/bootstrap.min.css">
+  <!-- slick slider -->
+  <link rel="stylesheet" href="plugins/slick/slick.css">
+  <!-- themefy-icon -->
+  <link rel="stylesheet" href="plugins/themify-icons/themify-icons.css">
+  <!-- animation css -->
+  <link rel="stylesheet" href="plugins/animate/animate.css">
+  <!-- aos -->
+  <link rel="stylesheet" href="plugins/aos/aos.css">
+  <!-- venobox popup -->
+  <link rel="stylesheet" href="plugins/venobox/venobox.css">
+
+  <!-- Main Stylesheet -->
+  <link href="css/style.css" rel="stylesheet">
+
+  <!--Favicon-->
+  <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
+  <link rel="icon" href="images/favicon.png" type="image/x-icon">
+
+</head>
+
+<body>
+  <!-- preloader start -->
+  <div class="preloader">
+    <img src="images/preloader.gif" alt="preloader">
+  </div>
+  <!-- preloader end -->
+
+<!-- header -->
+
+<%- include("header1")%>
+<!-- /header -->
+<!-- Modal -->
+<% const m=getMessages() %>    
+                                        <% if (m.notify) { %>
+                                        <% m.notify.forEach((element) => { %>
+                                         <div class="alert alert-success toastrDefaultSuccess" role="alert">
+                                            <%= element %>
+                                        </div>
+                                        <% }) %>                           
+                                    <% } %>
+                             
+<!-- hero slider -->
+
+<%- include("homeslider.ejs") %>
+
+<!-- /hero slider -->
+
+
+
+
+
+
+
+
+<!-- /about us -->
+<!-- /courses -->
+<!-- courses -->
+<section class="section-sm">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="d-flex align-items-center section-title justify-content-between">
+          <h2 class="mb-0 text-nowrap mr-3">Our Categories</h2>
+          <div class="border-top w-100 border-primary d-none d-sm-block"></div>
+          
+        </div>
+      </div>
+    </div>
+    <!-- course list -->
+<div class="row justify-content-center">
+  <!-- course item -->
+  <% if(db_rows_array.length>0){%>
+    <% for(var i=0; i<db_rows_array.length;i++) {%>
+  <div class="col-lg-4 col-sm-6 mb-5">
+    <div class="card p-0 border-primary rounded-0 hover-shadow">
+     
+      <div class="card-body">
+        
+        <a href="/studentevent/<%= db_rows_array[i].category_id%>">
+          <h4 class="card-title"><%=db_rows_array[i].category_name%></h4>
+        </a>
+      
+        <a href="/studentevent/<%= db_rows_array[i].category_id%>" class="btn btn-primary btn-sm">Apply now</a>
+      </div>
+    </div>
+  </div>
+  <% } %>
+<%}%>
+
+</div>
+<!-- /course list -->
+    <!-- mobile see all button -->
+   
+  </div>
+</section>
+<!-- /courses -->
+
+
+
+
+
+<section class="section-sm">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="d-flex align-items-center section-title justify-content-between">
+          <h2 class="mb-0 text-nowrap mr-3">Our Successfull events</h2>
+          <div class="border-top w-100 border-primary d-none d-sm-block"></div>
+          <div>
+            <a href="/studentsevent" class="btn btn-sm btn-primary-outline ml-sm-3 d-none d-sm-block">see all</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- course list -->
+<div class="row justify-content-center">
+  <!-- course item -->
+  <% if(event_rows_array.length>0){%>
+    <% for(var i=0; i<event_rows_array.length;i++) {%>
+  <div class="col-lg-4 col-sm-6 mb-5">
+    <div class="card p-0 border-primary rounded-0 hover-shadow">
+      <img class="card-img-top rounded-0" src="<%=event_rows_array[i].event_photo%>" width="500px" height="300px" alt="course thumb">
+      <div class="card-body">
+        <ul class="list-inline mb-2">
+          <li class="list-inline-item"><i class="ti-calendar mr-1 text-color"></i><%=event_rows_array[i].event_from_date%>-<%=event_rows_array[i].event_to_date%></li>
+          <li class="list-inline-item"><i class="ti-time mr-1 text-color"></i><%=event_rows_array[i].event_from_time%>-<%=event_rows_array[i].event_to_time%></li>
+          
+        </ul>
+        <a href="course-single.html">
+          <h4 class="card-title"><%=event_rows_array[i].event_name%></h4>
+        </a>
+        <p class="card-text mb-4"> <i class="ti-location-pin mr-1 text-color"></i><%=event_rows_array[i].event_venue%></p>
+        <a href="/seventdetails/<%= event_rows_array[i].event_id%>" class="btn btn-primary btn-sm">More Details</a>
+      </div>
+    </div>
+  </div>
+  <!-- course item -->
+  <% } %>
+  <%}%>
+  
+<!-- /course list -->
+    <!-- mobile see all button -->
+    
+  </div>
+</section>
+<!-- /courses -->
+
+
+
+<!-- about us -->
+<section class="section">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-12">
+        <h2 class="section-title">About SSIT</h2>
+        
+        <p>The company offers College event planning services from a team of experienced and energetic event. One of the main reasons behind the success of Event Planner is the fact that the team does not charge fees to its clients! With the number of events we organise, Event Planner Ltd does not need to add exorbitant fees and mark-ups to make its profit margins. This ensures that our clients list, which is constantly growing, make regular use of our services.
+
+
+          There is no fee. There is no mark-up!
+          
+          The Event Planner team does not charge any fees to its clients*. Yes, this might sound strange. However, the company earns its profits through its suppliers, with whom a very strong relationship has been built. This does not mean that the costs are up-marked to make up for the fee. On the contrary, they are less than it would cost a company when booking directly. We know it sounds too good to believe, but over the years this formula has helped the Event Planner team become the success story they are today.</p>
+    
+      </div>
+    
+    </div>
+  </div>
+</section>
+
+
+<!-- cta -->
+<!-- /cta -->
+<!-- success story -->
+
+<!-- /success story -->
+
+
+
+
+<!-- footer -->
+<%- include("footer.ejs") %>
+<!-- /footer -->
+
+<!-- jQuery -->
+<script src="plugins/jQuery/jquery.min.js"></script>
+<!-- Bootstrap JS -->
+<script src="plugins/bootstrap/bootstrap.min.js"></script>
+<!-- slick slider -->
+<script src="plugins/slick/slick.min.js"></script>
+<!-- aos -->
+<script src="plugins/aos/aos.js"></script>
+<!-- venobox popup -->
+<script src="plugins/venobox/venobox.min.js"></script>
+<!-- filter -->
+<script src="plugins/filterizr/jquery.filterizr.min.js"></script>
+<!-- google map -->
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBu5nZKbeK-WHQ70oqOWo-_4VmwOwKP9YQ"></script>
+<script src="plugins/google-map/gmap.js"></script>
+
+<!-- Main Script -->
+<script src="js/script.js"></script>
+
+</body>
+</html>

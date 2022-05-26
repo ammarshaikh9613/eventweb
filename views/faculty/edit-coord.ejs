@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Coordinator Form</title>
+
+    <!-- Google Font: Source Sans Pro -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="/plugins/fontawesome-free/css/all.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <!-- Tempusdominus Bootstrap 4 -->
+    <link rel="stylesheet" href="/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+    <!-- iCheck -->
+    <link rel="stylesheet" href="/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+    <!-- JQVMap -->
+    <link rel="stylesheet" href="/plugins/jqvmap/jqvmap.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="/dist/css/adminlte.min.css">
+    <!-- overlayScrollbars -->
+    <link rel="stylesheet" href="/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+    <!-- Daterange picker -->
+    <link rel="stylesheet" href="/plugins/daterangepicker/daterangepicker.css">
+    <!-- summernote -->
+    <link rel="stylesheet" href="/plugins/summernote/summernote-bs4.min.css">
+    <style>
+        
+        li a {
+            color:#20c997;
+        }
+        a{
+            color:#20c997;
+        }
+        .btn-outline-success{
+            border-color:#20c997;
+            color:#20c997
+        }
+        .btn-outline-success:hover {
+    background-color: #20c997; 
+
+}
+.btn-outline-success:active{
+    background-color:#20c997;
+}
+
+.btn-outline-success:focus{
+    background-color:#20c997;
+}
+</style>
+</head>
+
+<body class="hold-transition sidebar-mini layout-fixed">
+    <div class="wrapper">
+
+        <!-- Preloader -->
+        <%-include('faculty-anim');%>
+
+        <!-- Navbar -->
+        <%- include('faculty-header')%>
+            <!-- /.navbar -->
+
+            <!-- Main Sidebar Container -->
+            <%- include('faculty-sidebar')%>
+
+                <!-- Content Wrapper. Contains page content -->
+                <div class="content-wrapper">
+                    <!-- Content Header (Page header) -->
+                    <section class="content-header">
+                        <div class="container-fluid">
+                            <div class="row mb-2">
+                                <div class="col-sm-6">
+                                    <h1>faculty Form</h1>
+                                </div>
+                                <div class="col-sm-6">
+                                    <ol class="breadcrumb float-sm-right">
+                                        <li class="breadcrumb-item"><a href="/faculty-index">Home</a></li>
+                                        <li class="breadcrumb-item active">Edit Coordinator Form</li>
+                                    </ol>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /.container-fluid -->
+                    </section>
+
+                    <!-- Main content -->
+                    <section class="content">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <!-- left column -->
+                                <div class="col-md-12">
+                                    <!-- general form elements -->
+                                    <div class="card card-teal">
+                                        <div class="card-header">
+                                            <h3 class="card-title">Edit Coordinator Form</h3>
+                                        </div>
+                                        <!-- /.card-header -->
+                                        <!-- form start -->
+                                        <form method="post" enctype="multipart/form-data">
+                                            <div class="card-body">
+
+                                                <div class="form-group">
+                                                    <label for="exampleInputName1">Coordinator Name</label>
+                                                    <select name="student_id" class="form-control">
+                                                        <%for(var i=0;i<studentData.length;i++){%>
+                                                            <option value="<%= studentData[i].student_id %>"><%= studentData[i].student_name %></option>
+                                                            <%} %>
+                                                    </select>
+                                                  </div>
+
+                                                  <div class="form-group">
+                                                    <label for="exampleInputName1">Event Name</label>
+                                                    <select name="event_id" class="form-control">
+                                                        <%for(var i=0;i<eventData.length;i++){%>
+                                                            <option value="<%= eventData[i].event_id %>"><%= eventData[i].event_name %></option>
+                                                            <%} %>
+                                                    </select>
+                                                  </div>
+                                               
+                                                
+
+                                                
+                                                <div class="form-group">
+                                                    <label for="exampleInputEmail">Coordinator Email </label>
+                                                    <input type="email" class="form-control" name="coordinator_email" value="<%= db_rows_array[0].coordinator_email%>" required>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label for="exampleInputpassword">Password</label>
+                                                    <input type="password" class="form-control" name="coordinator_pass" value="<%= db_rows_array[0].coordinator_pass%>" required>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label for="exampleInputmobile">Mobile No</label>
+                                                    <input type="tel" class="form-control" name="coordinator_mobile" value="<%= db_rows_array[0].coordinator_mobile%>" required>
+                                                </div>
+
+                                                
+
+                                            </div>
+                                            <!-- /.card-body -->
+
+                                            <div class="card-footer">
+                                                <button type="submit" class="btn btn-outline-success" style="margin-right: 20px">Submit</button>
+                                                <button type="button" class="btn btn-outline-dark" onclick="window.location='/displaycoord'">Display</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <!-- /.card -->
+
+                                    <!--/.col (right) -->
+                                </div>
+                                <!-- /.row -->
+                            </div>
+                            <!-- /.container-fluid -->
+                    </section>
+                    <!-- /.content -->
+                    </div>
+                    <!-- /.content-wrapper -->
+                    <%- include('faculty-footer')%>
+
+                        <!-- Control Sidebar -->
+                        <aside class="control-sidebar control-sidebar-dark">
+                            <!-- Control sidebar content goes here -->
+                        </aside>
+                        <!-- /.control-sidebar -->
+                </div>
+                <!-- ./wrapper -->
+
+                <!-- jQuery -->
+                <script src="/plugins/jquery/jquery.min.js"></script>
+                <!-- jQuery UI 1.11.4 -->
+                <script src="/plugins/jquery-ui/jquery-ui.min.js"></script>
+                <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+                <script>
+                    $.widget.bridge('uibutton', $.ui.button)
+                </script>
+                <!-- Bootstrap 4 -->
+                <script src="/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+                <!-- ChartJS -->
+                <script src="/plugins/chart.js/Chart.min.js"></script>
+                <!-- Sparkline -->
+                <script src="/plugins/sparklines/sparkline.js"></script>
+                <!-- JQVMap -->
+                <script src="/plugins/jqvmap/jquery.vmap.min.js"></script>
+                <script src="/plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
+                <!-- jQuery Knob Chart -->
+                <script src="/plugins/jquery-knob/jquery.knob.min.js"></script>
+                <!-- daterangepicker -->
+                <script src="/plugins/moment/moment.min.js"></script>
+                <script src="/plugins/daterangepicker/daterangepicker.js"></script>
+                <!-- Tempusdominus Bootstrap 4 -->
+                <script src="/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
+                <!-- Summernote -->
+                <script src="/plugins/summernote/summernote-bs4.min.js"></script>
+                <!-- overlayScrollbars -->
+                <script src="/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+                <!-- AdminLTE App -->
+                <script src="/dist/js/adminlte.js"></script>
+                <!-- AdminLTE for demo purposes -->
+                <script src="/dist/js/demo.js"></script>
+                <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+                <script src="/dist/js/pages/dashboard.js"></script>
+</body>
+
+</html>

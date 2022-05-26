@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Mark Attendance</title>
+
+    <!-- Google Font: Source Sans Pro -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="/plugins/fontawesome-free/css/all.min.css">
+    <!-- overlayScrollbars -->
+    <link rel="stylesheet" href="/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="/dist/css/adminlte.min.css">
+    <style>
+      
+        
+        li a {
+            color:indigo;
+        }
+        a{
+            color:indigo;
+        }
+        .btn-outline-success{
+            border-color:indigo;
+            color:black
+        }
+        .btn-outline-success:hover {
+    background-color: indigo; 
+
+}
+.btn-outline-success:active{
+    background-color:indigo;
+}
+
+.btn-outline-success:focus{
+    background-color:indigo;
+}
+
+.btn-success{
+            border-color:indigo;
+            color:white;
+            background-color: indigo;
+        }
+        .btn-check:checked.btn btn-outline-success::before{
+            background-color:indigo;
+        }
+    
+</style>
+    
+</head>
+
+<body >
+    <div class="wrapper">
+
+        <!-- Preloader -->
+        <div class="preloader flex-column justify-content-center align-items-center">
+            <img class="animation__wobble" src="/dist/img/AdminLTELogo.png" alt="AdminLTELogo" height="60" width="60">
+        </div>
+
+        <!-- Navbar -->
+        <%- include('coord-header')%>
+            <!-- /.navbar -->
+
+            <!-- Main Sidebar Container -->
+            <%- include('coord-sidebar') %>
+
+                <!-- Content Wrapper. Contains page content -->
+                <div class="content-wrapper">
+                    <!-- Content Header (Page header) -->
+                    <div class="content-header">
+                        <div class="container-fluid">
+                            <div class="row mb-2">
+                                <div class="col-sm-6">
+                                   
+                                </div>
+                                <!-- /.col -->
+                                <div class="col-sm-6">
+                                    <ol class="breadcrumb float-sm-right">
+                                        <li class="breadcrumb-item"><a href="/coord-index">Home</a></li>
+                                        <li class="breadcrumb-item active">Attendance Dashboard </li>
+                                        
+                                    </ol>
+                                </div>
+                                
+                                
+
+                                
+
+                                <!-- New Data Added -->
+                                <div class="container-fluid mt--7">
+                                    <div class="row">
+                                        <div class="col-xl-12 order-xl-1">
+                                            <div class="card  shadow">
+                                                <div class="card-header bg-white border-0">
+                                                    <div class="row align-items-center">
+                                                        <div class="col-8">
+                                                            <h3 class="mb-0">Mark Attendance</h3>
+                                                        </div>
+                    
+                                                    </div>
+                                                </div>
+                                                <div class="card-body">
+                                                    <!-- <h6 class="form-control-label mb-5"><b>Reg id : </b> -->
+                                                        <!-- <%=  %> || <b>SECTION : </b> -->
+                                                  
+                                                    </h6>
+                                                    <div class="pl-lg-4">
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <div class="form-group focused">
+                                                                    <div class="table-responsive" style="overflow-x: hidden;">
+                                                                        <form name="frm" method="POST" action="/addAttendanceProcess/<%=studentData.length%>"> 
+                                                                           
+                                                                            <div class="col-lg-12">
+                                                                              
+                                                                                
+                                                                            </div>
+                                                                            <div class="row">
+                                                                                <div class="col-md-4">
+                                                                                    <input class="form-control" name="attendance_date" type="date" name="date"
+                                                                                        id="date-input" required>
+                                                                                </div>
+                                                                               
+                                                                            </div>
+                                                                            <br>
+                                                                            <div class="row">
+                                                                            <table class="table">
+                                                                                <thead class="thead-dark">
+                                                                                    <tr>
+                                                                                        <th scope="col">#</th>
+                                                                                        <th scope="col">Name</th>
+                                                                                        <th scope="col">Mark Present</th>
+                                                                                    </tr>
+                                                                                </thead>
+                                                                                <tbody>
+
+                    
+                                                                                    <%for (var i = 0;i<studentData.length;i++){%>  
+                                                    
+                                                                                               
+                                                                                    <tr>
+                                                                                        <th scope="row">
+                                                                                            <%=i+1%>
+                                                                                        </th>
+                                                                                        <td>
+                                                                                            <%= studentData[i].student_name %>
+                                                                                        </td>
+                                                                                        <td>
+                                                                                             <div id=`${i}radio` class="btn-group btn-group-toggle"  data-toggle="buttons">
+                                                                                                
+                                                                                                <label class="btn btn-outline-secondary">
+                                                                                                  <input type="radio" class="btn-check" name="is_present[<%= i %>]"    value="1" >present
+                                                                                                </label>
+                                                                                                <label class="btn btn-outline-secondary"  >
+                                                                                                <input type="radio"class="btn-check" name="is_present[<%= i %>]"   value="0" > Absent
+                                                                                                
+                                                                                                </label>
+                                                                                            </div>
+                                                                                               
+                                                                        
+                                                                                        </td>
+                                                                                    </tr>
+
+                                                                                    <input type="hidden" name="reg_id" value="<%= studentData[i].reg_id %>">
+                                                                                    <input type="hidden" name="student_id" value="<%= studentData[i].student_id %>">
+                                                                                    
+                                                                                    <% } %>
+                    
+                                                                                </tbody>
+                                                                                
+                                                                            </table>
+                                                                            
+                                                                        </div>
+                                                                            <button id="submit" class="btn btn-success btn-block">Mark
+                                                                                Attendance</button>
+                                                                        </form>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                    
+                    
+                                    </div>
+                                </div>
+                                <!--New Data Closed  -->
+
+
+                              
+                                  <!-- /.card -->
+                                </div>
+
+                              
+                               
+                                <!-- /.col -->
+                            </div>
+                            <!-- /.row -->
+                        </div>
+                        <!-- /.container-fluid -->
+                    </div>
+                    <!-- /.content-header -->
+
+                    <!-- Main content -->
+                   
+                    <!-- /.content -->
+                </div>
+                <!-- /.content-wrapper -->
+
+                <!-- Control Sidebar -->
+                <aside class="control-sidebar control-sidebar-dark">
+                    <!-- Control sidebar content goes here -->
+                </aside>
+                <!-- /.control-sidebar -->
+
+                <!-- Main Footer -->
+                <%- include('coord-footer')%>
+    </div>
+    <!-- ./wrapper -->
+
+    <!-- REQUIRED SCRIPTS -->
+    <!-- jQuery -->
+    <script src="/plugins/jquery/jquery.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- overlayScrollbars -->
+    <script src="/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="/dist/js/adminlte.js"></script>
+
+
+    <!-- PAGE PLUGINS -->
+    <!-- jQuery Mapael -->
+    <script src="/plugins/jquery-mousewheel/jquery.mousewheel.js"></script>
+    <script src="/plugins/raphael/raphael.min.js"></script>
+    <script src="/plugins/jquery-mapael/jquery.mapael.min.js"></script>
+    <script src="/plugins/jquery-mapael/maps/usa_states.min.js"></script>
+    <!-- ChartJS -->
+    <script src="/plugins/chart.js/Chart.min.js"></script>
+
+    <!-- AdminLTE for demo purposes -->
+    <script src="/dist/js/demo.js"></script>
+    <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+    <script src="/dist/js/pages/dashboard2.js"></script>
+
+
+    <script type="text/javascript">
+
+$(document).ready(function () {
+  // Set default value of calendar as today's date
+  const today = new Date();
+  const year = today.getFullYear().toString();
+  let month = (today.getMonth() + 1).toString();
+  let day = today.getDate().toString();
+  if (month.length == 1) {
+    month = '0' + month;
+  }
+  if (day.length == 1) {
+    day = '0' + day;
+  }
+  let date = year + '-' + month + '-' + day;
+  $('#date-input').val(date);
+
+  // Date onChange handle
+  $('#date-input').change(function () {
+    const attendance_date = $('#date-input').val();
+    $("input[type='checkbox']").each(function () {
+      const isPresent = $(this).prop('checked');
+    });
+  });
+ 
+
+  //   Mark all present button
+  $('#mark-all-present').click(function () {
+    $("input[type='radio']").each(function () {
+      const student_id = $(this).attr('id');
+      $(`input[name=${student_id}]`).val('True');
+      $(this).prop('checked', true);
+    });
+  });
+  //   Mark all absent button
+  $('#mark-all-absent').click(function () {
+    $("input[type='checkbox']").each(function () {
+      const student_id = $(this).attr('id');
+      $(`input[name=${student_id}]`).val('False');
+      $(this).prop('checked', false);
+    });
+  });
+
+  var selectedOption = $("input:radio[name=is_present]:checked").val();
+    console.log("Selected Opt"+selectedOption);
+
+
+
+    
+
+});
+
+
+
+
+    </script>
+
+</body>
+
+</html>
